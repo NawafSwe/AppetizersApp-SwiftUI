@@ -7,6 +7,10 @@
 
 import Foundation
 
-enum RecipeError: String , Error{
-    case error = "something went wrong"
+enum APError: Error{
+    case invalidURL
+    case invalidResponse
+    case invalidData
+    case unCompleted 
+    
 }

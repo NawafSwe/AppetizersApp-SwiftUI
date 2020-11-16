@@ -15,9 +15,9 @@
 		39B3430B2562AB68006E73DD /* AppetizerListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3430A2562AB68006E73DD /* AppetizerListView.swift */; };
 		39B3430E2562AB81006E73DD /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3430D2562AB81006E73DD /* AccountView.swift */; };
 		39B343132562ACAE006E73DD /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B343122562ACAE006E73DD /* OrderView.swift */; };
-		39B343172562B3E6006E73DD /* getApetizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B343162562B3E6006E73DD /* getApetizers.swift */; };
+		39B343172562B3E6006E73DD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B343162562B3E6006E73DD /* NetworkManager.swift */; };
 		39B3431A2562B3FD006E73DD /* Appetizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B343192562B3FD006E73DD /* Appetizer.swift */; };
-		39B3431E2562B541006E73DD /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3431D2562B541006E73DD /* RecipeError.swift */; };
+		39B3431E2562B541006E73DD /* APError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3431D2562B541006E73DD /* APError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +31,9 @@
 		39B3430A2562AB68006E73DD /* AppetizerListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListView.swift; sourceTree = "<group>"; };
 		39B3430D2562AB81006E73DD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		39B343122562ACAE006E73DD /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
-		39B343162562B3E6006E73DD /* getApetizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getApetizers.swift; sourceTree = "<group>"; };
+		39B343162562B3E6006E73DD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		39B343192562B3FD006E73DD /* Appetizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appetizer.swift; sourceTree = "<group>"; };
-		39B3431D2562B541006E73DD /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
+		39B3431D2562B541006E73DD /* APError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				39B343192562B3FD006E73DD /* Appetizer.swift */,
-				39B343162562B3E6006E73DD /* getApetizers.swift */,
+				39B343162562B3E6006E73DD /* NetworkManager.swift */,
 				39B3430A2562AB68006E73DD /* AppetizerListView.swift */,
 				39B343122562ACAE006E73DD /* OrderView.swift */,
 				39B3430D2562AB81006E73DD /* AccountView.swift */,
@@ -76,7 +76,7 @@
 				39B342FD2562AA98006E73DD /* Assets.xcassets */,
 				39B343022562AA98006E73DD /* Info.plist */,
 				39B342FF2562AA98006E73DD /* Preview Content */,
-				39B3431D2562B541006E73DD /* RecipeError.swift */,
+				39B3431D2562B541006E73DD /* APError.swift */,
 				391DE0652562C8C100FFB85E /* AppetizerListCell.swift */,
 			);
 			path = "Appetizers-App";
@@ -160,13 +160,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				39B3431A2562B3FD006E73DD /* Appetizer.swift in Sources */,
-				39B343172562B3E6006E73DD /* getApetizers.swift in Sources */,
+				39B343172562B3E6006E73DD /* NetworkManager.swift in Sources */,
 				39B342FC2562AA97006E73DD /* AppetizerTabView.swift in Sources */,
 				39B342FA2562AA97006E73DD /* Appetizers_AppApp.swift in Sources */,
 				39B3430E2562AB81006E73DD /* AccountView.swift in Sources */,
 				391DE0662562C8C100FFB85E /* AppetizerListCell.swift in Sources */,
 				39B3430B2562AB68006E73DD /* AppetizerListView.swift in Sources */,
-				39B3431E2562B541006E73DD /* RecipeError.swift in Sources */,
+				39B3431E2562B541006E73DD /* APError.swift in Sources */,
 				39B343132562ACAE006E73DD /* OrderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

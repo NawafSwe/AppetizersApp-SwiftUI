@@ -12,18 +12,7 @@ struct OrderView: View {
         NavigationView{
             Text("Order View!")
                 .navigationTitle("Order List 🫀")
-        }.onAppear{
-            NetworkManager().fetchRecipes { (result) in
-                switch result{
-                    case .success(let recipes):
-                        print(recipes)
-                    case .failure(let err):
-                        print(err)
-                }
-                
-            }
         }
-       
     }
 }
 

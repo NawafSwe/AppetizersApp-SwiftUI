@@ -29,7 +29,7 @@ struct AppetizerListCell: View {
                     .fontWeight(.semibold)
             }
             
-           
+            
         }
         
     }
