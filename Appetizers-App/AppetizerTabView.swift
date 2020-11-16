@@ -15,7 +15,9 @@ struct AppetizerTabView: View {
                 .tabItem {
                     VStack{
                 Text("Home")
+                   
                 Image(systemName: "house")
+                    
                 } }
             
             AccountView()
@@ -30,10 +32,13 @@ struct AppetizerTabView: View {
                     VStack{
                         Image(systemName:"bag")
                         Text("Order")
+                        
                     }
                 }
         }
-     
+        //setting the color for each selected tabItem
+        .accentColor(Color("brandPrimary"))
+        
     }
 }
 
