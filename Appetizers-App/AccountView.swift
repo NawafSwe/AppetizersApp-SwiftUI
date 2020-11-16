@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  AppetizerHomeView.swift
 //  Appetizers-App
 //
 //  Created by Nawaf B Al sharqi on 16/11/2020.
@@ -7,15 +7,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct AccountView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Text("Account View")
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AppetizerHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        AccountView()
     }
 }
