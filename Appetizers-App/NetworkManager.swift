@@ -19,7 +19,7 @@ final class NetworkManager {
      */
      func fetchRecipes(completion: @escaping (Result <[Appetizer],APError> )-> Void) {
         /// checking if the url is valid url if not return with invalidURL error
-        guard let url:URL = URL(string: appetizerURL) else {
+        guard let url: URL = URL(string: appetizerURL) else {
             completion(.failure(.invalidURL))
             return
         }
@@ -28,8 +28,7 @@ final class NetworkManager {
         /// initing the task runner with the url
         let task = session.dataTask(with: url) { (data, response, error) in
             /// checking if error nil or not if not nil return with error unCompleted
-            guard let _ = error else {
-                print(error!)
+            if  let _ = error {
                 completion(.failure(.unCompleted))
                 return
             }
@@ -52,8 +51,8 @@ final class NetworkManager {
                 let decodedResponse = try decoder.decode(AppetizerResponse.self, from: safeData)
                 let appetizersList = decodedResponse.request
                 completion(.success(appetizersList))
-            }catch let error {
-                print("\(error)")
+            }catch  _ {
+               //print("\(_)")
                 completion(.failure(.invalidData))
                 return
             }
