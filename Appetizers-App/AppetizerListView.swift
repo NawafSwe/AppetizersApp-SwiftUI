@@ -11,17 +11,7 @@ struct AppetizerListView: View {
     var body: some View {
         NavigationView {
             List(MockData.repeatedList){ appetizer in
-                HStack(spacing:30){
-                    Image(appetizer.imageURL)
-                        .resizable()
-                        .frame(width:100, height: 100)
-                        
-                        
-                    VStack{
-                        Text(appetizer.name)
-                        Text("\(  String(format: "%.2f", appetizer.price)  ) $")
-                    }
-                }
+              AppetizerListCell(appetizer: appetizer)
             }
                 .navigationTitle("Appetizer List 🍟")
         }

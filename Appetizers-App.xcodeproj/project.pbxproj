@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391DE0662562C8C100FFB85E /* AppetizerListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391DE0652562C8C100FFB85E /* AppetizerListCell.swift */; };
 		39B342FA2562AA97006E73DD /* Appetizers_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B342F92562AA97006E73DD /* Appetizers_AppApp.swift */; };
 		39B342FC2562AA97006E73DD /* AppetizerTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B342FB2562AA97006E73DD /* AppetizerTabView.swift */; };
 		39B342FE2562AA98006E73DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39B342FD2562AA98006E73DD /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		391DE0652562C8C100FFB85E /* AppetizerListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerListCell.swift; sourceTree = "<group>"; };
 		39B342F62562AA97006E73DD /* Appetizers-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Appetizers-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		39B342F92562AA97006E73DD /* Appetizers_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appetizers_AppApp.swift; sourceTree = "<group>"; };
 		39B342FB2562AA97006E73DD /* AppetizerTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerTabView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				39B343022562AA98006E73DD /* Info.plist */,
 				39B342FF2562AA98006E73DD /* Preview Content */,
 				39B3431D2562B541006E73DD /* RecipeError.swift */,
+				391DE0652562C8C100FFB85E /* AppetizerListCell.swift */,
 			);
 			path = "Appetizers-App";
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				39B342FC2562AA97006E73DD /* AppetizerTabView.swift in Sources */,
 				39B342FA2562AA97006E73DD /* Appetizers_AppApp.swift in Sources */,
 				39B3430E2562AB81006E73DD /* AccountView.swift in Sources */,
+				391DE0662562C8C100FFB85E /* AppetizerListCell.swift in Sources */,
 				39B3430B2562AB68006E73DD /* AppetizerListView.swift in Sources */,
 				39B3431E2562B541006E73DD /* RecipeError.swift in Sources */,
 				39B343132562ACAE006E73DD /* OrderView.swift in Sources */,
