@@ -15,7 +15,7 @@
 		39B3430E2562AB81006E73DD /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3430D2562AB81006E73DD /* AccountView.swift */; };
 		39B343132562ACAE006E73DD /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B343122562ACAE006E73DD /* OrderView.swift */; };
 		39B343172562B3E6006E73DD /* getApetizers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B343162562B3E6006E73DD /* getApetizers.swift */; };
-		39B3431A2562B3FD006E73DD /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B343192562B3FD006E73DD /* RecipeModel.swift */; };
+		39B3431A2562B3FD006E73DD /* Appetizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B343192562B3FD006E73DD /* Appetizer.swift */; };
 		39B3431E2562B541006E73DD /* RecipeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3431D2562B541006E73DD /* RecipeError.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 		39B3430D2562AB81006E73DD /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		39B343122562ACAE006E73DD /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		39B343162562B3E6006E73DD /* getApetizers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getApetizers.swift; sourceTree = "<group>"; };
-		39B343192562B3FD006E73DD /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
+		39B343192562B3FD006E73DD /* Appetizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appetizer.swift; sourceTree = "<group>"; };
 		39B3431D2562B541006E73DD /* RecipeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,7 +64,7 @@
 		39B342F82562AA97006E73DD /* Appetizers-App */ = {
 			isa = PBXGroup;
 			children = (
-				39B343192562B3FD006E73DD /* RecipeModel.swift */,
+				39B343192562B3FD006E73DD /* Appetizer.swift */,
 				39B343162562B3E6006E73DD /* getApetizers.swift */,
 				39B3430A2562AB68006E73DD /* AppetizerListView.swift */,
 				39B343122562ACAE006E73DD /* OrderView.swift */,
@@ -156,7 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39B3431A2562B3FD006E73DD /* RecipeModel.swift in Sources */,
+				39B3431A2562B3FD006E73DD /* Appetizer.swift in Sources */,
 				39B343172562B3E6006E73DD /* getApetizers.swift in Sources */,
 				39B342FC2562AA97006E73DD /* AppetizerTabView.swift in Sources */,
 				39B342FA2562AA97006E73DD /* Appetizers_AppApp.swift in Sources */,

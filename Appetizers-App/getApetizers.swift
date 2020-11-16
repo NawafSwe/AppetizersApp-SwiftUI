@@ -9,7 +9,7 @@ import Foundation
 struct NetworkManager {
     let validUrl:String = "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/appetizers"
     
-    func fetchRecipes(completion: @escaping (Result <[RecipeModel],RecipeError> )-> Void) {
+    func fetchRecipes(completion: @escaping (Result <[Appetizer],RecipeError> )-> Void) {
         let url:URL = URL(string: self.validUrl)!
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: url) { (data, response, error) in
@@ -30,7 +30,7 @@ struct NetworkManager {
             
             let decoder = JSONDecoder()
             do{
-                let parsedData = try decoder.decode(Request.self, from: safeData)
+                let parsedData = try decoder.decode(AppetizerResponse.self, from: safeData)
                 let recipesArray = parsedData.request
                 completion(.success(recipesArray))
             }catch let error {
