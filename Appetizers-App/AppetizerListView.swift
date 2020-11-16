@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AppetizerListView: View {
+    /// using state object if you init viewModel to this view but if you receiving a state object from another view to this view you `Must` use `@ObservedObject`.
     @StateObject private var viewModel   = AppetizerListViewModel()
     
     
