@@ -11,16 +11,21 @@ import SwiftUI
 final class AppetizerListViewModel : ObservableObject{
     @Published  var appetizers : [Appetizer] = []
     @Published var alertItem : AlertItem?
-    @Published var isLoading:Bool = true
+    @Published var isLoading:Bool = false
     
     /// `function` to get fetch appetizers and re set the appetizers list if there are appetizers.
     ///`[self]` can be used to avoid re-typing self inside the closure incase no naming match.
     func getAppetizers(){
+      /// make is loading true 
+        DispatchQueue.main.async{
+            self.isLoading = true
+            
+        }
         /// run after 1.5 s to show `animation`
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
             NetworkManager.shared.fetchRecipes { [self] (result) in
                 DispatchQueue.main.async {
-                    //stop animating after `3 seconds`
+                    //stop animating after `1.5 seconds`
                     self.isLoading = false
                     switch result{
                         case .success(let appetizers):

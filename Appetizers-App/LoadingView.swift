@@ -35,11 +35,14 @@ struct LoadingView: View{
     let style : UIActivityIndicatorView.Style
     let color: UIColor!
     var body: some View{
-        ActivityIndicator(style: style, color: self.color)
+        ZStack{
+            Color(.systemBackground)
+                .edgesIgnoringSafeArea(.all)
+            ActivityIndicator(style: style, color: self.color)
+        }
+        
     }
 }
-
-
 
 
 
