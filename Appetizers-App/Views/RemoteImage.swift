@@ -7,11 +7,10 @@
 
 import SwiftUI
 
-
  //MARK:- ImageLoader
 final class ImageLoader : ObservableObject{
-    @Published var image: Image? = nil
     
+    @Published var image: Image? = nil
     func load(from url:String){
         NetworkManager.shared.downloadImages(from: url) { (UIImage) in
             /// checking if there is image
@@ -28,7 +27,7 @@ final class ImageLoader : ObservableObject{
 struct RemoteImage:View{
     var image : Image?
     var body: some View{
-        /// checking if the image is exist if not show the place holder
+        /// Checking if the image is exist if not show the place holder
         image?.resizable() ?? Image("NotFoundImage").resizable()
     }
 }

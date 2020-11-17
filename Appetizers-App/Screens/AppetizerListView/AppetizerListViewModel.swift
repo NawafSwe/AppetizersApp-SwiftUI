@@ -50,7 +50,5 @@ final class AppetizerListViewModel : ObservableObject{
                 }
             }
         }
-        
-        
     }
 }

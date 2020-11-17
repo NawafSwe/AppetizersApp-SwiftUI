@@ -40,7 +40,7 @@ final class NetworkManager {
             }
             /// checking the status code of the response if not 200 or nil return with invalidResponse error
             guard let response = response as? HTTPURLResponse , response.statusCode == 200 else{
-                print("error response")
+                //print("error response")
                 completion(.failure(.invalidResponse))
                 return
             }
@@ -105,7 +105,7 @@ final class NetworkManager {
             completion(image)
             return
         }
+        /// starting the network call
         task.resume()
     }
 }
-

@@ -39,7 +39,5 @@ struct MockData {
         Appetizer(id: 350, calories: 300, imageURL: "https://seanallen-course-backend.herokuapp.com/images/appetizers/stuff-shells.jpg", description:"I'm getting hungrier just looking at these." , carbs: 320, protein: 329, price: 10 , name: "Appetizer")
         
     ]
-    
     static let repeatedList  = [appetizerSample, appetizerSample, appetizerSample, appetizerSample]
-    
 }
