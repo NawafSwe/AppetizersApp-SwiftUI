@@ -11,32 +11,41 @@ import SwiftUI
 final class AppetizerListViewModel : ObservableObject{
     @Published  var appetizers : [Appetizer] = []
     @Published var alertItem : AlertItem?
+    @Published var isLoading:Bool = true
     
-    /// function to get fetch appetizers and re set the appetizers list if there are appetizers
+    /// `function` to get fetch appetizers and re set the appetizers list if there are appetizers.
+    ///`[self]` can be used to avoid re-typing self inside the closure incase no naming match.
     func getAppetizers(){
-        NetworkManager.shared.fetchRecipes { (result) in
-            DispatchQueue.main.async {
-                switch result{
-                    case .success(let appetizers):
-                        self.appetizers = appetizers
-                    case .failure(let error):
-                        /// determining which error to display to user
-                        switch error{
-                            case .invalidData:
-                                self.alertItem = AlertContext.invalidData
-                                
-                            case .invalidResponse:
-                                self.alertItem = AlertContext.invalidResponse
-                            case .invalidURL :
-                                self.alertItem = AlertContext.invalidResponse
-                            case .unCompleted:
-                                self.alertItem = AlertContext.unCompleted
-                        }
-                        
-                        
+        /// run after 1.5 s to show `animation`
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5){
+            NetworkManager.shared.fetchRecipes { [self] (result) in
+                DispatchQueue.main.async {
+                    //stop animating after `3 seconds`
+                    self.isLoading = false
+                    switch result{
+                        case .success(let appetizers):
+                            self.appetizers = appetizers
+                        case .failure(let error):
+                            /// determining which error to display to user
+                            switch error{
+                                case .invalidData:
+                                    alertItem = AlertContext.invalidData
+                                    
+                                case .invalidResponse:
+                                    alertItem = AlertContext.invalidResponse
+                                case .invalidURL :
+                                    alertItem = AlertContext.invalidResponse
+                                case .unCompleted:
+                                    alertItem = AlertContext.unCompleted
+                            }
+                            
+                            
+                    }
+                    
                 }
-                
             }
         }
+        
+        
     }
 }

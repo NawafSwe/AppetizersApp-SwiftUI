@@ -37,7 +37,8 @@ struct AppetizerTabView: View {
                 }
         }
         //setting the color for each selected tabItem
-        .accentColor(Color("brandPrimary"))
+        /// using the one from the extension
+        .accentColor(.brandPrimary)
         
     }
 }
