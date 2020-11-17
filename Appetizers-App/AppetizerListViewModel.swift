@@ -10,6 +10,7 @@ import SwiftUI
 
 final class AppetizerListViewModel : ObservableObject{
     @Published  var appetizers : [Appetizer] = []
+    @Published var alertItem : AlertItem?
     
     /// function to get fetch appetizers and re set the appetizers list if there are appetizers
     func getAppetizers(){
@@ -19,7 +20,19 @@ final class AppetizerListViewModel : ObservableObject{
                     case .success(let appetizers):
                         self.appetizers = appetizers
                     case .failure(let error):
-                        print("\(error.localizedDescription)")
+                        /// determining which error to display to user
+                        switch error{
+                            case .invalidData:
+                                self.alertItem = AlertContext.invalidData
+                                
+                            case .invalidResponse:
+                                self.alertItem = AlertContext.invalidResponse
+                            case .invalidURL :
+                                self.alertItem = AlertContext.invalidResponse
+                            case .unCompleted:
+                                self.alertItem = AlertContext.unCompleted
+                        }
+                        
                         
                 }
                 
