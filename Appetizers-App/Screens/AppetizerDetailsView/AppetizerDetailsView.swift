@@ -20,9 +20,12 @@ struct AppetizerDetailsView: View {
                 
                 
             }.overlay(
-                Button(action: {self.dismiss = true }){
-                    OverlayXmarkButton(dismiss: $dismiss)
-                })
+                    Button(action: {self.dismiss = true }){
+                        OverlayXmarkButton(dismiss: $dismiss) }
+                        .padding(.horizontal,-20)
+                        .padding(.vertical,-8)
+            )
+               
             
             Text("\(appetizer.name)")
                 .font(.largeTitle)
@@ -47,7 +50,7 @@ struct AppetizerDetailsView: View {
         }
         .frame(maxWidth:.infinity)
         .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
-        .cornerRadius(4)
+        .cornerRadius(10)
         
     }
 }
