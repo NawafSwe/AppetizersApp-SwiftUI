@@ -23,6 +23,8 @@
 		39B343172562B3E6006E73DD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B343162562B3E6006E73DD /* NetworkManager.swift */; };
 		39B3431A2562B3FD006E73DD /* Appetizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B343192562B3FD006E73DD /* Appetizer.swift */; };
 		39B3431E2562B541006E73DD /* APError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3431D2562B541006E73DD /* APError.swift */; };
+		39D1C5FC256588E400979BA9 /* AppetizerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D1C5FB256588E400979BA9 /* AppetizerDetailsView.swift */; };
+		39D1C60125658C8700979BA9 /* XmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D1C60025658C8700979BA9 /* XmarkView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		39B343162562B3E6006E73DD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		39B343192562B3FD006E73DD /* Appetizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appetizer.swift; sourceTree = "<group>"; };
 		39B3431D2562B541006E73DD /* APError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APError.swift; sourceTree = "<group>"; };
+		39D1C5FB256588E400979BA9 /* AppetizerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailsView.swift; sourceTree = "<group>"; };
+		39D1C60025658C8700979BA9 /* XmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmarkView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				39B342FB2562AA97006E73DD /* AppetizerTabView.swift */,
+				39D1C5FA256588CB00979BA9 /* AppetizerDetailsView */,
 				396AC34525644D8C00C17142 /* AccountView */,
 				396AC34425644D7B00C17142 /* OrderView */,
 				396AC33E25644C5800C17142 /* AppetizerListView */,
@@ -131,6 +136,7 @@
 		396AC34125644D1400C17142 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				39D1C5FF25658C7500979BA9 /* Buttons */,
 				396AC33F25644C9900C17142 /* UIKitViews */,
 				390B56A825645C6600565044 /* Images */,
 				390B56A725645C5F00565044 /* Cells */,
@@ -225,6 +231,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		39D1C5FA256588CB00979BA9 /* AppetizerDetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				39D1C5FB256588E400979BA9 /* AppetizerDetailsView.swift */,
+			);
+			path = AppetizerDetailsView;
+			sourceTree = "<group>";
+		};
+		39D1C5FF25658C7500979BA9 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				39D1C60025658C8700979BA9 /* XmarkView.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -302,6 +324,8 @@
 				39B342FA2562AA97006E73DD /* Appetizers_AppApp.swift in Sources */,
 				396AC3322564326F00C17142 /* LoadingView.swift in Sources */,
 				39B3430E2562AB81006E73DD /* AccountView.swift in Sources */,
+				39D1C60125658C8700979BA9 /* XmarkView.swift in Sources */,
+				39D1C5FC256588E400979BA9 /* AppetizerDetailsView.swift in Sources */,
 				391DE0662562C8C100FFB85E /* AppetizerListCell.swift in Sources */,
 				396AC338256443B400C17142 /* RemoteImage.swift in Sources */,
 				39B3430B2562AB68006E73DD /* AppetizerListView.swift in Sources */,
