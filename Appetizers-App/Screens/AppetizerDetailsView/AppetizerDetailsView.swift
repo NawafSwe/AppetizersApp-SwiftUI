@@ -15,16 +15,14 @@ struct AppetizerDetailsView: View {
             VStack{
                 Image(appetizer.imageURL)
                     .resizable()
-                    
+                    .aspectRatio(contentMode: .fill)
                     .frame(width : 350, height: 290)
-                    .cornerRadius(20)
+                
                 
             }.overlay(
                 Button(action: {self.dismiss = true }){
                     OverlayXmarkButton(dismiss: $dismiss)
                 })
-            
-            
             
             Text("\(appetizer.name)")
                 .font(.largeTitle)
@@ -34,19 +32,22 @@ struct AppetizerDetailsView: View {
                 .multilineTextAlignment(.center)
                 .font(.body)
                 .padding()
-            HStack(alignment: .center ,spacing:20 ){
-                AppetizerInfo(title: "calories", info: "\(appetizer.calories)")
-                AppetizerInfo(title: "carbs", info: "\(appetizer.carbs) g")
-                AppetizerInfo(title: "protein", info: "\(appetizer.protein) g")
+            VStack{
+                HStack(alignment: .center ,spacing:20 ){
+                    AppetizerInfo(title: "calories", info: "\(appetizer.calories)")
+                    AppetizerInfo(title: "carbs", info: "\(appetizer.carbs) g")
+                    AppetizerInfo(title: "protein", info: "\(appetizer.protein) g")
+                }
+                .padding()
+                
+                AddOrderButton(price: "\(appetizer.price)")
+                    .padding()
             }
-            .padding()
-            
-            AddOrderButton(price: "\(appetizer.price)")
-            
             Spacer()
-            
         }
-        
+        .frame(maxWidth:.infinity)
+        .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
+        .cornerRadius(4)
         
     }
 }
@@ -102,6 +103,6 @@ struct AddOrderButton: View{
         .frame(width: 300, height: 50, alignment: .center)
         .background(Color.brandPrimary)
         .cornerRadius(10)
-       .accentColor(.white)
+        .accentColor(.white)
     }
 }
