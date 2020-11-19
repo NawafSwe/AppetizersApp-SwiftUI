@@ -11,28 +11,35 @@ struct AccountView: View {
     @State var firstName:String = ""
     @State var lastName:String = ""
     @State var email:String = ""
-    @State var date:Date = Date()
-    @State var extraNap : Bool = false
-    @State var frequentRefill:Bool = true
+    @State var date :Date = Date()
+    @State var extraNap :Bool = false
+    @State var frequentRefill :Bool = true
     var body: some View {
         NavigationView{
             Form{
                 Section(header:Text("Personal Info")) {
                     TextField("First Name", text: $firstName)
                         .textContentType(.name)
-                        .foregroundColor(.secondary)
+                        .keyboardType(.default)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                       
                     
                     TextField("Last Name", text: $lastName)
                         .textContentType(.familyName)
-                        .foregroundColor(.secondary)
+                        .keyboardType(.default)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                       
                     
                     TextField("First Name", text: $email)
                         .textContentType(.emailAddress)
-                        .foregroundColor(.secondary)
-                    
+                        .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
+                        
                     DatePicker("Birthday", selection: $date,displayedComponents: .date)
                         .datePickerStyle(DefaultDatePickerStyle())
-                        
                         .accentColor(.brandPrimary)
                     
                     Button(action:{}){
