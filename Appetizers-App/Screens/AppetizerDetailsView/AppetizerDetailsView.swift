@@ -7,105 +7,87 @@
 
 import SwiftUI
 
+//MARK:- AppetizerDetailsView
 struct AppetizerDetailsView: View {
-    @State private var dismiss = false
-    let appetizer:Appetizer = MockData.appetizerSample
+    @Environment (\.presentationMode) private var presentationMode
+    let appetizer:Appetizer
     var body: some View {
         VStack{
-            VStack{
-                Image(appetizer.imageURL)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width : 350, height: 290)
-                
-                
-            }.overlay(
-                    Button(action: {self.dismiss = true }){
-                        OverlayXmarkButton(dismiss: $dismiss) }
-                        .padding(.horizontal,-20)
-                        .padding(.vertical,-8)
-            )
-               
+            //AppetizerRemoteImage(url: appetizer.imageURL)
+            Image(appetizer.imageURL)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width:300, height: 225)
             
-            Text("\(appetizer.name)")
-                .font(.largeTitle)
-                .padding()
-            Text("\(appetizer.description)")
-                /// making the text if takes up another line goes from center
-                .multilineTextAlignment(.center)
-                .font(.body)
-                .padding()
+            AppetizerDescription(name: appetizer.name, description: appetizer.description)
+            
             VStack{
-                HStack(alignment: .center ,spacing:20 ){
-                    AppetizerInfo(title: "calories", info: "\(appetizer.calories)")
-                    AppetizerInfo(title: "carbs", info: "\(appetizer.carbs) g")
-                    AppetizerInfo(title: "protein", info: "\(appetizer.protein) g")
+                HStack(alignment: .center ,spacing:40 ){
+                    AppetizerInfo(title: "Calories", info: "\(appetizer.calories)")
+                    AppetizerInfo(title: "Carbs", info: "\(appetizer.carbs) g")
+                    AppetizerInfo(title: "Protein", info: "\(appetizer.protein) g")
                 }
                 .padding()
-                
-                AddOrderButton(price: "\(appetizer.price)")
-                    .padding()
             }
             Spacer()
-        }
-        .frame(maxWidth:.infinity)
-        .background(Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)))
-        .cornerRadius(10)
-        
-    }
-}
-
-struct AppetizerDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppetizerDetailsView()
-    }
-}
-
-struct OverlayXmarkButton :View{
-    @Binding var dismiss:Bool
-    var body: some View{
-        HStack{
-            Spacer()
-            VStack{
-                
-                XmarkView(dissmis: self.$dismiss)
-                Spacer()
-            }.padding(.vertical,-15)
+            
+            AddOrderButton(price: "\(appetizer.price)")
+                .padding(.bottom,30)
             
         }
+        .frame(width: 300, height: 525)
+        .background(Color(.systemBackground))
+        .cornerRadius(12)
+        .shadow(radius: 40)
+        .overlay( OverlayXmarkButton() ,alignment: .topTrailing)
+        
+        
         
     }
 }
+//MARK:- AppetizerDetailsView_Previews
+struct AppetizerDetailsView_Previews: PreviewProvider {
+    static var previews: some View {
+        AppetizerDetailsView(appetizer: MockData.appetizerSample)
+    }
+}
 
-struct AppetizerInfo:View{
+
+
+//MARK:- AppetizerInfo
+struct AppetizerInfo: View{
     let title:String
     let info: String
     var body: some View{
         VStack(alignment: .center, spacing:3){
             Text("\(title)")
-                .font(.subheadline)
-                .fontWeight(.semibold)
-                .foregroundColor(.gray)
+                .bold()
+                .font(.caption)
+                .foregroundColor(.secondary)
             Text("\(info)")
-                .font(.subheadline)
+                .foregroundColor(.secondary)
                 .fontWeight(.semibold)
-                .foregroundColor(.gray)
+                .italic()
         }
-        
     }
 }
 
-struct AddOrderButton: View{
-    let price:String
-    var body: some View{
-        Button(action:{}){
-            Text(" $\(price) - Add To Order")
-                .font(.system(size: 20))
-                .bold()
+//MARK:- AppetizerDescription
+struct AppetizerDescription: View {
+    let name : String
+    let description:String
+    var body: some View {
+        VStack{
+            Text("\(name)")
+                .font(.title2)
+                .fontWeight(.semibold)
+            
+            Text("\(description)")
+                /// making the text if takes up another line goes from center
+                .multilineTextAlignment(.center)
+                .font(.body)
+                .padding()
+            
         }
-        .frame(width: 300, height: 50, alignment: .center)
-        .background(Color.brandPrimary)
-        .cornerRadius(10)
-        .accentColor(.white)
     }
 }

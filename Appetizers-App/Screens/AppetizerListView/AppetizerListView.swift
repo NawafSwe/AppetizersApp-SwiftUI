@@ -15,12 +15,17 @@ struct AppetizerListView: View {
         ZStack{
             NavigationView {
                 List(viewModel.appetizers){ appetizer in
-                    AppetizerListCell(appetizer: appetizer)
+                    NavigationLink(
+                        destination:AppetizerDetailsView(appetizer: appetizer) ){
+                        AppetizerListCell(appetizer: appetizer)
+                        
+                    }
                 }
                 .onAppear{
                     viewModel.getAppetizers()
                 }
                 .navigationTitle("Appetizer List 🍟")
+                .navigationViewStyle(StackNavigationViewStyle())
             }
             
             if viewModel.isLoading{

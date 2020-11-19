@@ -25,6 +25,8 @@
 		39B3431E2562B541006E73DD /* APError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B3431D2562B541006E73DD /* APError.swift */; };
 		39D1C5FC256588E400979BA9 /* AppetizerDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D1C5FB256588E400979BA9 /* AppetizerDetailsView.swift */; };
 		39D1C60125658C8700979BA9 /* XmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D1C60025658C8700979BA9 /* XmarkView.swift */; };
+		39D78DFC2566059D00E244F3 /* OverlayXmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D78DFB2566059D00E244F3 /* OverlayXmarkButton.swift */; };
+		39D78DFF256605D600E244F3 /* AddOrderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D78DFE256605D600E244F3 /* AddOrderButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		39B3431D2562B541006E73DD /* APError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APError.swift; sourceTree = "<group>"; };
 		39D1C5FB256588E400979BA9 /* AppetizerDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizerDetailsView.swift; sourceTree = "<group>"; };
 		39D1C60025658C8700979BA9 /* XmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XmarkView.swift; sourceTree = "<group>"; };
+		39D78DFB2566059D00E244F3 /* OverlayXmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayXmarkButton.swift; sourceTree = "<group>"; };
+		39D78DFE256605D600E244F3 /* AddOrderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrderButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +247,8 @@
 			isa = PBXGroup;
 			children = (
 				39D1C60025658C8700979BA9 /* XmarkView.swift */,
+				39D78DFB2566059D00E244F3 /* OverlayXmarkButton.swift */,
+				39D78DFE256605D600E244F3 /* AddOrderButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39D78DFC2566059D00E244F3 /* OverlayXmarkButton.swift in Sources */,
 				39B3431A2562B3FD006E73DD /* Appetizer.swift in Sources */,
 				39B343172562B3E6006E73DD /* NetworkManager.swift in Sources */,
 				39B342FC2562AA97006E73DD /* AppetizerTabView.swift in Sources */,
@@ -329,6 +336,7 @@
 				391DE0662562C8C100FFB85E /* AppetizerListCell.swift in Sources */,
 				396AC338256443B400C17142 /* RemoteImage.swift in Sources */,
 				39B3430B2562AB68006E73DD /* AppetizerListView.swift in Sources */,
+				39D78DFF256605D600E244F3 /* AddOrderButton.swift in Sources */,
 				396AC32F25642CE200C17142 /* Alert.swift in Sources */,
 				39B3431E2562B541006E73DD /* APError.swift in Sources */,
 				39B343132562ACAE006E73DD /* OrderView.swift in Sources */,
