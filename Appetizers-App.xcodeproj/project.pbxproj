@@ -104,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				39B342FB2562AA97006E73DD /* AppetizerTabView.swift */,
-				39D1C5FA256588CB00979BA9 /* AppetizerDetailsView */,
 				396AC34525644D8C00C17142 /* AccountView */,
 				396AC34425644D7B00C17142 /* OrderView */,
 				396AC33E25644C5800C17142 /* AppetizerListView */,
@@ -115,6 +114,7 @@
 		396AC33E25644C5800C17142 /* AppetizerListView */ = {
 			isa = PBXGroup;
 			children = (
+				39D1C5FB256588E400979BA9 /* AppetizerDetailsView.swift */,
 				397B15B92562DB0400864D74 /* AppetizerListViewModel.swift */,
 				39B3430A2562AB68006E73DD /* AppetizerListView.swift */,
 			);
@@ -233,14 +233,6 @@
 				39B343002562AA98006E73DD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		39D1C5FA256588CB00979BA9 /* AppetizerDetailsView */ = {
-			isa = PBXGroup;
-			children = (
-				39D1C5FB256588E400979BA9 /* AppetizerDetailsView.swift */,
-			);
-			path = AppetizerDetailsView;
 			sourceTree = "<group>";
 		};
 		39D1C5FF25658C7500979BA9 /* Buttons */ = {

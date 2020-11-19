@@ -10,13 +10,13 @@ import SwiftUI
 //MARK:- AppetizerDetailsView
 struct AppetizerDetailsView: View {
     @Binding var dissmiss: Bool
-    var appetizer:Appetizer
+    let appetizer:Appetizer
     var body: some View {
         VStack{
             AppetizerRemoteImage(url: appetizer.imageURL)
                 .aspectRatio(contentMode: .fit)
                 .frame(width:300, height: 225)
-            
+
             AppetizerDescription(name: appetizer.name, description: appetizer.description)
             
             VStack{
@@ -38,9 +38,6 @@ struct AppetizerDetailsView: View {
         .cornerRadius(12)
         .shadow(radius: 40)
         .overlay( OverlayXmarkButton(dismiss: $dissmiss) ,alignment: .topTrailing)
-        
-        
-        
     }
 }
 //MARK:- AppetizerDetailsView_Previews
@@ -85,7 +82,6 @@ struct AppetizerDescription: View {
                 .multilineTextAlignment(.center)
                 .font(.body)
                 .padding()
-            
         }
     }
 }

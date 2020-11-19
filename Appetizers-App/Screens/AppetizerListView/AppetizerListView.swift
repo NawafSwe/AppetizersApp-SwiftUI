@@ -23,35 +23,33 @@ struct AppetizerListView: View {
                             }
                         }
                 }
-                ///disable the list to prevent user to scroll while showing details
-                .disabled(viewModel.showDetails)
                 
                 .onAppear{
                     viewModel.getAppetizers()
                 }
                 .navigationTitle("Appetizer List 🍟")
-                .navigationViewStyle(StackNavigationViewStyle())
+                ///disable the list to prevent user to scroll while showing details
+                .disabled(viewModel.showDetails)
             }
             /// if user selected an appetizer then we wants a nice shadow and blur view
-            .blur(radius: viewModel.showDetails ? 5 : 0)
+            .blur(radius: viewModel.showDetails ? 20 : 0)
             .shadow(radius: viewModel.showDetails ? 10 : 0 )
-            
             
             /// if user tapped on a cell show details about appetizer 
             if(viewModel.showDetails){
-                
                 AppetizerDetailsView(dissmiss: $viewModel.showDetails ,appetizer: viewModel.selectedAppetizer!)
                     /// making animation
                     .transition(.identity)
                     .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.3))
             }
+            /// loading while fetching from api
             if viewModel.isLoading{
                 LoadingView(style: .large, color: UIColor.brandPrimary)
             }
+            
+            /// alert an error if there is an error
         }.alert(item: $viewModel.alertItem){ alert in
             Alert(title: alert.title, message: alert.message, dismissButton: alert.dismissButton)
-            
-            
             
         }
     }
