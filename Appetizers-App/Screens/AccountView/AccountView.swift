@@ -8,39 +8,36 @@
 import SwiftUI
 
 struct AccountView: View {
-    @State var firstName:String = ""
-    @State var lastName:String = ""
-    @State var email:String = ""
-    @State var date :Date = Date()
-    @State var extraNap :Bool = false
-    @State var frequentRefill :Bool = true
+    @StateObject private var viewModel = AccountViewModel()
     var body: some View {
         NavigationView{
             Form{
+                
                 Section(header:Text("Personal Info")) {
-                    TextField("First Name", text: $firstName)
+                    TextField("First Name", text: $viewModel.firstName)
                         .textContentType(.name)
                         .keyboardType(.default)
                         .autocapitalization(.none)
+                        /// dispaling autocorrection
                         .disableAutocorrection(true)
-                       
                     
-                    TextField("Last Name", text: $lastName)
+                    
+                    TextField("Last Name", text: $viewModel.lastName)
                         .textContentType(.familyName)
                         .keyboardType(.default)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                       
                     
-                    TextField("First Name", text: $email)
+                    
+                    TextField("First Name", text: $viewModel.email)
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                        
-                    DatePicker("Birthday", selection: $date,displayedComponents: .date)
-                        .datePickerStyle(DefaultDatePickerStyle())
+                    
+                    DatePicker("Birthday", selection: $viewModel.date,displayedComponents: .date)
                         .accentColor(.brandPrimary)
+                    
                     
                     Button(action:{}){
                         Text("Save Changes")
@@ -48,17 +45,19 @@ struct AccountView: View {
                     }
                 }
                 Section(header:Text("Requests")){
-                    Toggle("Extra Napkins", isOn: $extraNap)
-                        .toggleStyle(SwitchToggleStyle(tint: Color.brandPrimary))
-                    Toggle("Frequent Refills", isOn: $frequentRefill)
-                        .toggleStyle(SwitchToggleStyle(tint: Color.brandPrimary))
+                    Toggle(isOn: $viewModel.extraNap){
+                        Text("Extra Napkins")
+                    }
+                    Toggle(isOn: $viewModel.frequentRefill){
+                        Text("Frequent Refills")
+                    }
                 }
+                .toggleStyle(SwitchToggleStyle(tint: Color.brandPrimary))
             }
             .navigationTitle("Account🤪")
         }
     }
 }
-
 struct AppetizerHomeView_Previews: PreviewProvider {
     static var previews: some View {
         AccountView()
