@@ -12,6 +12,11 @@ final class AppetizerListViewModel : ObservableObject{
     @Published  var appetizers : [Appetizer] = []
     @Published var alertItem : AlertItem?
     @Published var isLoading:Bool = false
+    @Published var showDetails:Bool = false
+    /// if appetizer was selected make showDetails true.
+    @Published var selectedAppetizer: Appetizer? {
+        didSet{ self.showDetails = true  }
+    }
     
     /// `function` to get fetch appetizers and re set the appetizers list if there are appetizers.
     ///`[self]` can be used to avoid re-typing self inside the closure incase no naming match.
@@ -49,6 +54,13 @@ final class AppetizerListViewModel : ObservableObject{
                     
                 }
             }
+        }
+    }
+    
+    func unSelectAppetizer()-> Void {
+        DispatchQueue.main.async {
+            self.selectedAppetizer = nil
+            self.showDetails.toggle()
         }
     }
 }

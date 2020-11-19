@@ -9,13 +9,11 @@ import SwiftUI
 
 //MARK:- AppetizerDetailsView
 struct AppetizerDetailsView: View {
-    @Environment (\.presentationMode) private var presentationMode
-    let appetizer:Appetizer
+    @Binding var dissmiss: Bool
+    var appetizer:Appetizer
     var body: some View {
         VStack{
-            //AppetizerRemoteImage(url: appetizer.imageURL)
-            Image(appetizer.imageURL)
-                .resizable()
+            AppetizerRemoteImage(url: appetizer.imageURL)
                 .aspectRatio(contentMode: .fit)
                 .frame(width:300, height: 225)
             
@@ -39,7 +37,7 @@ struct AppetizerDetailsView: View {
         .background(Color(.systemBackground))
         .cornerRadius(12)
         .shadow(radius: 40)
-        .overlay( OverlayXmarkButton() ,alignment: .topTrailing)
+        .overlay( OverlayXmarkButton(dismiss: $dissmiss) ,alignment: .topTrailing)
         
         
         
@@ -48,7 +46,7 @@ struct AppetizerDetailsView: View {
 //MARK:- AppetizerDetailsView_Previews
 struct AppetizerDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        AppetizerDetailsView(appetizer: MockData.appetizerSample)
+        AppetizerDetailsView(dissmiss: .constant(false), appetizer: MockData.appetizerSample)
     }
 }
 

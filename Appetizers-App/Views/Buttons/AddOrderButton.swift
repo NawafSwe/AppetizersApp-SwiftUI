@@ -16,7 +16,7 @@ struct AddOrderButton: View{
                 .font(.system(size: 20))
                 .bold()
         }
-        .frame(width: 300, height: 50, alignment: .center)
+        .frame(width: 260, height: 50, alignment: .center)
         .background(Color.brandPrimary)
         .cornerRadius(10)
         .accentColor(.white)

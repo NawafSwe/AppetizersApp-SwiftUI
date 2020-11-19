@@ -15,24 +15,43 @@ struct AppetizerListView: View {
         ZStack{
             NavigationView {
                 List(viewModel.appetizers){ appetizer in
-                    NavigationLink(
-                        destination:AppetizerDetailsView(appetizer: appetizer) ){
-                        AppetizerListCell(appetizer: appetizer)
-                        
-                    }
+                    AppetizerListCell(appetizer: appetizer)
+                        .onTapGesture{
+                            /// setting an appetizer
+                            DispatchQueue.main.async {
+                                viewModel.selectedAppetizer = appetizer
+                            }
+                        }
                 }
+                ///disable the list to prevent user to scroll while showing details
+                .disabled(viewModel.showDetails)
+                
                 .onAppear{
                     viewModel.getAppetizers()
                 }
                 .navigationTitle("Appetizer List 🍟")
                 .navigationViewStyle(StackNavigationViewStyle())
             }
+            /// if user selected an appetizer then we wants a nice shadow and blur view
+            .blur(radius: viewModel.showDetails ? 5 : 0)
+            .shadow(radius: viewModel.showDetails ? 10 : 0 )
             
+            
+            /// if user tapped on a cell show details about appetizer 
+            if(viewModel.showDetails){
+                
+                AppetizerDetailsView(dissmiss: $viewModel.showDetails ,appetizer: viewModel.selectedAppetizer!)
+                    /// making animation
+                    .transition(.identity)
+                    .animation(.spring(response: 0.5, dampingFraction: 0.5, blendDuration: 0.3))
+            }
             if viewModel.isLoading{
                 LoadingView(style: .large, color: UIColor.brandPrimary)
             }
         }.alert(item: $viewModel.alertItem){ alert in
             Alert(title: alert.title, message: alert.message, dismissButton: alert.dismissButton)
+            
+            
             
         }
     }

@@ -9,9 +9,11 @@ import SwiftUI
 
 //MARK:- OverlayXmarkButton
 struct OverlayXmarkButton : View {
-    
+    @Binding var dismiss: Bool
     var body: some View{
-        Button(action:{}){
+        Button(action:{
+            self.dismiss = false
+        }){
             ZStack{
                 Circle()
                     .frame(width:30, height: 30)
@@ -27,6 +29,6 @@ struct OverlayXmarkButton : View {
 }
 struct OverlayXmarkButton_Previews: PreviewProvider {
     static var previews: some View {
-        OverlayXmarkButton()
+        OverlayXmarkButton(dismiss: .constant(false))
     }
 }
