@@ -56,11 +56,4 @@ final class AppetizerListViewModel : ObservableObject{
             }
         }
     }
-    
-    func unSelectAppetizer()-> Void {
-        DispatchQueue.main.async {
-            self.selectedAppetizer = nil
-            self.showDetails.toggle()
-        }
-    }
 }

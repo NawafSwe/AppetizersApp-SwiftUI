@@ -29,7 +29,7 @@ struct AccountView: View {
                         .disableAutocorrection(true)
                     
                     
-                    TextField("First Name", text: $viewModel.email)
+                    TextField("Email", text: $viewModel.email)
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
@@ -39,7 +39,9 @@ struct AccountView: View {
                         .accentColor(.brandPrimary)
                     
                     
-                    Button(action:{}){
+                    Button(action:{
+                        viewModel.isValidForm()
+                    }){
                         Text("Save Changes")
                             .foregroundColor(.brandPrimary)
                     }
@@ -54,7 +56,10 @@ struct AccountView: View {
                 }
                 .toggleStyle(SwitchToggleStyle(tint: Color.brandPrimary))
             }
-            .navigationTitle("Account🤪")
+            .alert(item: $viewModel.alertItem){ alert in
+                Alert(title: alert.title, message: alert.message, dismissButton: alert.dismissButton)
+            }
+            .navigationTitle("🤪 Account")
         }
     }
 }
