@@ -40,7 +40,7 @@ struct AccountView: View {
                     
                     
                     Button(action:{
-                        viewModel.isValidForm()
+                        viewModel.saveChanges()
                     }){
                         Text("Save Changes")
                             .foregroundColor(.brandPrimary)
@@ -57,7 +57,9 @@ struct AccountView: View {
                 .toggleStyle(SwitchToggleStyle(tint: Color.brandPrimary))
             }
             .alert(item: $viewModel.alertItem){ alert in
-                Alert(title: alert.title, message: alert.message, dismissButton: alert.dismissButton)
+                Alert(title: alert.title,
+                      message: alert.message,
+                      dismissButton: alert.dismissButton)
             }
             .navigationTitle("🤪 Account")
         }

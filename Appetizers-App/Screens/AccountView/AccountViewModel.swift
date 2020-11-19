@@ -14,26 +14,34 @@ final class AccountViewModel : ObservableObject{
     @Published var extraNap  = false
     @Published var frequentRefill = false
     @Published var alertItem : AlertItem?
-
-func isValidForm()  -> Void{
-    /// check if first name and email and last name are not empty strings
-     guard !firstName.isEmpty && !email.isEmpty && !lastName.isEmpty else {
-        DispatchQueue.main.async {
-            self.alertItem = AlertContext.fieldCannotBeEmpty
-        }
-      
-        return
+    var isValidForm:Bool {
         
-     }
-    /// checking validity of email
-    guard email.isValidEmail  else {
-        DispatchQueue.main.async {
-            self.alertItem =  AlertContext.invalidEmail
+        /// check if first name and email and last name are not empty strings
+        guard !firstName.isEmpty && !email.isEmpty && !lastName.isEmpty else {
+            DispatchQueue.main.async {
+                self.alertItem = AlertContext.fieldCannotBeEmpty
+            }
+            
+            return false
+            
         }
-        return
+        /// checking validity of email
+        guard email.isValidEmail  else {
+            DispatchQueue.main.async {
+                self.alertItem =  AlertContext.invalidEmail
+            }
+            return false
+        }
+        
+        /// passed all tests
+        return true
     }
     
-    /// passed all tests
-    return
-}
+    func saveChanges()  -> Void{
+        guard isValidForm else{
+            return
+        }
+        /// save changes by functions like saving to userDefaults or to server
+        
+    }
 }
