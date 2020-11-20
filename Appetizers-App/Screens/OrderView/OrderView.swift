@@ -24,9 +24,8 @@ struct OrderView: View {
     }
     
     var body: some View {
-        
-        NavigationView {
-            if fakeData.count > 0{
+        NavigationView{
+            ZStack{
                 VStack(spacing:20){
                     List {
                         ForEach(fakeData){ appetizer in
@@ -43,17 +42,20 @@ struct OrderView: View {
                     }
                     .padding(.bottom,30)
                 }
-                .navigationTitle("Order List 🫀")
-            }else{
-                EmptyState()
-                    .navigationTitle("Order List 🫀")
+                
+                if fakeData.isEmpty{
+                    EmptyState()
+                       
+                    
+                }
+                
             }
-            
+            .navigationTitle("Order List 🫀")
             
             
         }
-        
     }
+    
 }
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {

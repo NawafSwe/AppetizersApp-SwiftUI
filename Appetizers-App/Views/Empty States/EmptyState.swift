@@ -22,7 +22,9 @@ struct EmptyState: View{
                 Text("No Items Yet In Your Orders")
                     .font(.body)
                     .fontWeight(.light)
+                    .multilineTextAlignment(.center)
                     .padding()
+                
             }
         }
     }
