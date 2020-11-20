@@ -8,14 +8,15 @@
 import SwiftUI
 
 //MARK:- AddOrderButton
-struct AddOrderButton: View{
+struct AppetizerButton: View{
     let price:String
+    let title:String
     var body: some View{
-        Button(action:{}){
-            Text(" $\(price) - Add To Order")
+        
+            Text(" $\(price) - \(title)")
                 .font(.system(size: 20))
                 .bold()
-        }
+                .foregroundColor(.white)
         .frame(width: 260, height: 50, alignment: .center)
         .background(Color.brandPrimary)
         .cornerRadius(10)
@@ -25,6 +26,6 @@ struct AddOrderButton: View{
 
 struct AddOrderButton_Previews: PreviewProvider {
     static var previews: some View {
-        AddOrderButton(price: "39")
+        AppetizerButton(price: "39",title: "Test")
     }
 }

@@ -16,7 +16,7 @@ struct AppetizerDetailsView: View {
             AppetizerRemoteImage(url: appetizer.imageURL)
                 .aspectRatio(contentMode: .fit)
                 .frame(width:300, height: 225)
-
+            
             AppetizerDescription(name: appetizer.name, description: appetizer.description)
             
             VStack{
@@ -29,9 +29,10 @@ struct AppetizerDetailsView: View {
             }
             Spacer()
             
-            AddOrderButton(price: "\(appetizer.price)")
-                .padding(.bottom,30)
-            
+            Button(action:{}){
+                AppetizerButton(price: "\(appetizer.price)",title: "Add To Order")
+            }
+            .padding(.bottom,30)
         }
         .frame(width: 300, height: 525)
         .background(Color(.systemBackground))

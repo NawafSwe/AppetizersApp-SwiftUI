@@ -7,7 +7,8 @@
 
 import SwiftUI
 final class AccountViewModel : ObservableObject{
-    /// giving an app storage object called user of optional data
+    /// giving an app storage object called user of optional data `when app deleted user default will be deleted`
+    /// `no sensitive data in userDefaults!!! such password or credit card..`
     @AppStorage("user") private var userData:Data?
     @Published var user = User()
     @Published var alertItem : AlertItem?
@@ -29,24 +30,20 @@ final class AccountViewModel : ObservableObject{
         }
         
     }
+    
+    
     func getUser()->Void{
         let decoder = JSONDecoder()
         guard let userData = userData else {return }
         do{
-            let safeUserData = try decoder.decode(User.self, from: userData )
             /// setting user data
-            self.user.birthday = safeUserData.birthday
-            self.user.email = safeUserData.email
-            self.user.firstName = safeUserData.firstName
-            self.user.lastName = safeUserData.lastName
-            self.user.extraNapkins = safeUserData.extraNapkins
-            self.user.frequentRefills = safeUserData.frequentRefills
+            user = try decoder.decode(User.self, from: userData )
         }catch _ {
             alertItem = AlertContext.unAbelToGetUserData
             return
         }
-        
     }
+    
     
     var isValidForm:Bool {
         /// check if first name and email and last name are not empty strings

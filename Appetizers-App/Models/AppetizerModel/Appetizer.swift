@@ -19,7 +19,7 @@ struct Appetizer: Codable, Identifiable{
     let description: String
     let carbs: Int
     let protein: Int
-    let price: Float
+    let price: Double
     let name:String
 }
 
@@ -32,12 +32,7 @@ struct MockData {
         
         Appetizer(id: 350, calories: 300, imageURL: "https://seanallen-course-backend.herokuapp.com/images/appetizers/blackened-shrimp.jpg", description: "easoned shrimp from the depths of the Atlantic Ocean.", carbs: 320, protein: 329, price: 10 , name: "Appetizer"),
         
-        Appetizer(id: 350, calories: 300, imageURL: "https://seanallen-course-backend.herokuapp.com/images/appetizers/philly-cheesesteak-sliders.jpg", description: "These look incredible. That's it. That's the description.", carbs: 320, protein: 329, price: 10 , name: "Appetizer"),
-        
-        Appetizer(id: 350, calories: 300, imageURL:"https://seanallen-course-backend.herokuapp.com/images/appetizers/rainbow-spring-rolls.jpg", description: "How did these even make the menu???" , carbs: 320, protein: 329, price: 10 , name: "Appetizer"),
-        
-        Appetizer(id: 350, calories: 300, imageURL: "https://seanallen-course-backend.herokuapp.com/images/appetizers/stuff-shells.jpg", description:"I'm getting hungrier just looking at these." , carbs: 320, protein: 329, price: 10 , name: "Appetizer")
-        
-    ]
+        Appetizer(id: 200, calories: 300, imageURL: "https://seanallen-course-backend.herokuapp.com/images/appetizers/philly-cheesesteak-sliders.jpg", description: "These look incredible. That's it. That's the description.", carbs: 320, protein: 329, price: 10 , name: "Appetizer")
+        ]
     static let repeatedList  = [appetizerSample, appetizerSample, appetizerSample, appetizerSample]
 }
