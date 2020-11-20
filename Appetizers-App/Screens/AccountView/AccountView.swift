@@ -12,9 +12,8 @@ struct AccountView: View {
     var body: some View {
         NavigationView{
             Form{
-                
                 Section(header:Text("Personal Info")) {
-                    TextField("First Name", text: $viewModel.firstName)
+                    TextField("First Name", text: $viewModel.user.firstName)
                         .textContentType(.name)
                         .keyboardType(.default)
                         .autocapitalization(.none)
@@ -22,20 +21,20 @@ struct AccountView: View {
                         .disableAutocorrection(true)
                     
                     
-                    TextField("Last Name", text: $viewModel.lastName)
+                    TextField("Last Name", text: $viewModel.user.lastName)
                         .textContentType(.familyName)
                         .keyboardType(.default)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     
                     
-                    TextField("Email", text: $viewModel.email)
+                    TextField("Email", text: $viewModel.user.email)
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
                     
-                    DatePicker("Birthday", selection: $viewModel.date,displayedComponents: .date)
+                    DatePicker("Birthday", selection: $viewModel.user.birthday ,displayedComponents: .date)
                         .accentColor(.brandPrimary)
                     
                     
@@ -47,10 +46,10 @@ struct AccountView: View {
                     }
                 }
                 Section(header:Text("Requests")){
-                    Toggle(isOn: $viewModel.extraNap){
+                    Toggle(isOn: $viewModel.user.extraNapkins){
                         Text("Extra Napkins")
                     }
-                    Toggle(isOn: $viewModel.frequentRefill){
+                    Toggle(isOn: $viewModel.user.frequentRefills){
                         Text("Frequent Refills")
                     }
                 }
@@ -60,6 +59,10 @@ struct AccountView: View {
                 Alert(title: alert.title,
                       message: alert.message,
                       dismissButton: alert.dismissButton)
+            }
+            .onAppear{
+                /// getting user data if the view appears 
+                viewModel.getUser()
             }
             .navigationTitle("🤪 Account")
         }
