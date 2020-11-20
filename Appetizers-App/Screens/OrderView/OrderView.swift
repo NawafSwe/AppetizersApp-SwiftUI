@@ -45,7 +45,7 @@ struct OrderView: View {
                 }
                 .navigationTitle("Order List 🫀")
             }else{
-                EmptyOrder()
+                EmptyState()
                     .navigationTitle("Order List 🫀")
             }
             
@@ -61,19 +61,4 @@ struct OrderView_Previews: PreviewProvider {
     }
 }
 
-struct EmptyOrder: View{
-    var body: some View{
-        VStack(spacing:40){
-            Image("NotFoundImage")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 200,height: 60)
-            
-            Text("No Orders Yet")
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-            
-            
-        }
-    }
-}
+
