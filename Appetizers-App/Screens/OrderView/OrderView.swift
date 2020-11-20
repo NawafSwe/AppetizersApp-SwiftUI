@@ -17,20 +17,23 @@ struct OrderView: View {
         }
         return prices
     }
+    
+    /// removing item
+    func removeOrder(at atOffsets: IndexSet){
+        fakeData.remove(atOffsets: atOffsets)
+    }
+    
     var body: some View {
         
         NavigationView {
             if fakeData.count > 0{
                 VStack(spacing:20){
                     List {
-                        ForEach(MockData.appetizerList){ appetizer in
+                        ForEach(fakeData){ appetizer in
                             AppetizerListCell(appetizer: appetizer)
                             
                             
-                        }.onDelete(perform: { indexSet in
-                            /// deleting element from order list
-                            fakeData.remove(atOffsets: indexSet)
-                        })
+                        }.onDelete(perform: removeOrder)
                     }
                     .listStyle(PlainListStyle())
                     Button(action:{}){
@@ -38,7 +41,7 @@ struct OrderView: View {
                         
                         
                     }
-                    .padding(.bottom,10)
+                    .padding(.bottom,30)
                 }
                 .navigationTitle("Order List 🫀")
             }else{
@@ -49,9 +52,9 @@ struct OrderView: View {
             
             
         }
+        
     }
 }
-
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
         OrderView()
