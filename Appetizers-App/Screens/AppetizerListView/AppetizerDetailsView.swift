@@ -11,6 +11,7 @@ import SwiftUI
 struct AppetizerDetailsView: View {
     @Binding var dissmiss: Bool
     let appetizer:Appetizer
+    @EnvironmentObject var order: Order
     var body: some View {
         VStack{
             AppetizerRemoteImage(url: appetizer.imageURL)
@@ -29,7 +30,14 @@ struct AppetizerDetailsView: View {
             }
             Spacer()
             
-            Button(action:{}){
+            Button(action:{
+                /// add the appetizer
+                DispatchQueue.main.async {
+                    order.add(appetizer)
+                    
+                }
+                self.dissmiss.toggle()
+            }){
                 AppetizerButton(price: "\(appetizer.price)",title: "Add To Order")
             }
             .padding(.bottom,30)

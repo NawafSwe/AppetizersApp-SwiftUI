@@ -8,51 +8,35 @@
 import SwiftUI
 
 struct OrderView: View {
-    @State var orderList : [Appetizer] = []
-    @State var fakeData = MockData.appetizerList
-    var allPrice : Double{
-        var prices = 0.0
-        for order in fakeData{
-            prices  += order.price
-        }
-        return prices
-    }
-    
-    /// removing item
-    func removeOrder(at atOffsets: IndexSet){
-        fakeData.remove(atOffsets: atOffsets)
-    }
-    
+    @EnvironmentObject var orders: Order
     var body: some View {
         NavigationView{
             ZStack{
                 VStack(spacing:20){
                     List {
-                        ForEach(fakeData){ appetizer in
+                        ForEach(orders.items){ appetizer in
                             AppetizerListCell(appetizer: appetizer)
                             
                             
-                        }.onDelete(perform: removeOrder)
+                        }.onDelete(perform: orders.removeOrder)
                     }
                     .listStyle(PlainListStyle())
                     Button(action:{}){
-                        AppetizerButton(price: "\(allPrice)", title: "Place Order")
+                        AppetizerButton(price: "\(orders.allPrice)", title: "Place Order")
                         
                         
                     }
                     .padding(.bottom,30)
                 }
                 
-                if fakeData.isEmpty{
+                if orders.items.isEmpty{
                     EmptyState()
-                       
+                    
                     
                 }
                 
             }
             .navigationTitle("Order List 🫀")
-            
-            
         }
     }
     
@@ -60,6 +44,7 @@ struct OrderView: View {
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
         OrderView()
+            .environmentObject(Order())
     }
 }
 
