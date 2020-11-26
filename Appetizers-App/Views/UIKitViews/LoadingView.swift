@@ -26,7 +26,7 @@ struct ActivityIndicator: UIViewRepresentable{
     
     func updateUIView(_ uiView: UIActivityIndicatorView, context: Context) { }
     
-  
+    
     
     
 }
@@ -38,7 +38,11 @@ struct LoadingView: View{
         ZStack{
             Color(.systemBackground)
                 .edgesIgnoringSafeArea(.all)
-            ActivityIndicator(style: style, color: self.color)
+            //ActivityIndicator(style: style, color: self.color)
+            //built in ios14
+            ///you can add title string to make text
+            ProgressView()
+                .progressViewStyle(CircularProgressViewStyle(tint: .brandPrimary))
         }
         
     }

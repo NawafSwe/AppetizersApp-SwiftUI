@@ -33,9 +33,14 @@ struct AccountView: View {
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
-                    
-                    DatePicker("Birthday", selection: $viewModel.user.birthday ,displayedComponents: .date)
+                        
+                        // not custom data
+                        //DatePicker("Birthday", selection: $viewModel.user.birthday ,displayedComponents: .date)
+                        /// from 18 to 101 years
+                    DatePicker("Birthday", selection: $viewModel.user.birthday, in: Date().hundredOneYearsAgo...Date().eighteenYearsAgo, displayedComponents: .date)
                         .accentColor(.brandPrimary)
+                    
+                    
                     
                     
                     Button(action:{
